@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:BudzetDomowyMinimal.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="BudzetDomowyMinimal.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="BudzetDomowyMinimal">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <StackPanel Margin="20" Spacing="10">
+        <TextBlock Text="Budżet domowy" FontSize="22" FontWeight="Bold" Margin="0,0,0,10"/>
+        <ListBox ItemsSource="{Binding Transactions}" SelectedItem="{Binding SelectedTransaction, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <TextBlock Text="{Binding Description}" Width="200"/>
+                        <TextBox Text="{Binding Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Foreground="{Binding Amount, Converter={StaticResource AmountToColorConverter}}" InputScope="Number"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,10,0,0">
+            <TextBox Width="200" Watermark="Opis" Text="{Binding NewDescription, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="100" Watermark="Kwota (np. 12.99)" Text="{Binding NewAmount, UpdateSourceTrigger=PropertyChanged}" InputScope="Number"/>
+            <Button Content="Dodaj" Command="{Binding AddTransactionCommand}"/>
+        </StackPanel>
+        <Button Content="Usuń zaznaczoną" Command="{Binding RemoveTransactionCommand}" Margin="0,10,0,0"/>
+        <TextBlock Text="{Binding Saldo, StringFormat='Saldo: {0:C2}'}" FontWeight="Bold" FontSize="16" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+    </StackPanel>
+
+</Window>

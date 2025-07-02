@@ -1,0 +1,20 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="BudzetDomowyMinimal.App"
+             xmlns:local="using:BudzetDomowyMinimal"
+             xmlns:vm="using:BudzetDomowyMinimal.ViewModels"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+
+    <Application.Resources>
+        <vm:AmountToColorConverter x:Key="AmountToColorConverter" />
+    </Application.Resources>
+</Application>
