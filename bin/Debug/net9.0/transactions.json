@@ -1,0 +1,26 @@
+[
+  {
+    "Date": "2025-07-07T19:41:16.4567785+02:00",
+    "Description": "Zakupy",
+    "Amount": -50,
+    "DateString": "2025-07-07"
+  },
+  {
+    "Date": "2025-07-07T19:41:16.4591327+02:00",
+    "Description": "Wyp\u0142ata",
+    "Amount": 3000,
+    "DateString": "2025-07-07"
+  },
+  {
+    "Date": "2025-07-07T19:41:21.0135633+02:00",
+    "Description": "ser",
+    "Amount": -50,
+    "DateString": "2025-07-07"
+  },
+  {
+    "Date": "2025-07-07T19:41:27.2316462+02:00",
+    "Description": "rachunki",
+    "Amount": -100,
+    "DateString": "2025-07-07"
+  }
+]

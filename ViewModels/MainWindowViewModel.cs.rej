@@ -1,0 +1,57 @@
+--- MainWindowViewModel.cs
++++ MainWindowViewModel.cs (modified)
+@@ -1,38 +1,23 @@
+ 
+ using System.Collections.ObjectModel;
+ using System.Collections.Specialized;
+-using System.ComponentModel;
+-using System.IO;
+-using System.Text.Json;
+ using BudzetDomowyMinimal.Models;
++using BudzetDomowyMinimal.Services;
+ 
+ namespace BudzetDomowyMinimal.ViewModels
+ {
+     public class MainWindowViewModel
+     {
+-        private const string DataFile = "transactions.json";
+         public ObservableCollection<Transaction> Transactions { get; set; }
+ 
+         public MainWindowViewModel()
+         {
+-            Transactions = LoadTransactions();
++            Transactions = new ObservableCollection<Transaction>(DataService.Load());
++            foreach (var t in Transactions)
++            {
++                t.OnChanged = SaveTransactions;
++            }
+             Transactions.CollectionChanged += Transactions_CollectionChanged;
+-        }
+-
+-        private ObservableCollection<Transaction> LoadTransactions()
+-        {
+-            if (File.Exists(DataFile))
+-            {
+-                var json = File.ReadAllText(DataFile);
+-                var transactions = JsonSerializer.Deserialize<ObservableCollection<Transaction>>(json);
+-                foreach (var t in transactions)
+-                {
+-                    t.OnChanged = SaveTransactions;
+-                }
+-                return transactions;
+-            }
+-
+-            return new ObservableCollection<Transaction>();
+         }
+ 
+         private void Transactions_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+@@ -49,8 +34,7 @@
+ 
+         private void SaveTransactions()
+         {
+-            var json = JsonSerializer.Serialize(Transactions);
+-            File.WriteAllText(DataFile, json);
++            DataService.Save(Transactions);
+         }
+     }
+ }

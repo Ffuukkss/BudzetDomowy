@@ -72,3 +72,4 @@ C:\Users\fuchs\Desktop\Studia\Nowy folder\BudzetDomowyMinimal\obj\Debug\net9.0\r
 C:\Users\fuchs\Desktop\Studia\Nowy folder\BudzetDomowyMinimal\obj\Debug\net9.0\BudzetDomowyMinimal.pdb
 C:\Users\fuchs\Desktop\Studia\Nowy folder\BudzetDomowyMinimal\obj\Debug\net9.0\BudzetDomowyMinimal.genruntimeconfig.cache
 C:\Users\fuchs\Desktop\Studia\Nowy folder\BudzetDomowyMinimal\obj\Debug\net9.0\ref\BudzetDomowyMinimal.dll
+C:\Users\fuchs\Desktop\Studia\Nowy folder\BudzetDomowyMinimal\obj\Debug\net9.0\BudzetDomowyMinimal.sourcelink.json
