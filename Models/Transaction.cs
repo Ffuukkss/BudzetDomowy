@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 
 namespace BudzetDomowyMinimal.Models;
 
@@ -29,9 +30,10 @@ public class Transaction : INotifyPropertyChanged
         set { _amount = value; OnPropertyChanged(); OnChanged?.Invoke(); }
     }
 
-    public string DateString => Date.ToString("yyyy-MM-dd");
-
+    [JsonIgnore]
     public Action? OnChanged { get; set; }
+
+    public string DateString => Date.ToString("yyyy-MM-dd");
 
     protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
