@@ -26,7 +26,7 @@ Budżet Domowy Minimal to prosta aplikacja pozwalająca na:
 
 1. Sklonuj repozytorium:
 ```bash
-git clone https://github.com/[twoja-nazwa-uzytkownika]/BudzetDomowyMinimal.git
+git clone https://github.com/Ffuukkss/BudzetDomowyMinimal.git
 ```
 
 2. Przejdź do katalogu projektu:
