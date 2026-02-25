@@ -78,4 +78,4 @@ MIT License
 
 ## Autor
 
-[Twoje imię i nazwisko] 
+Przemysław Fuchs
